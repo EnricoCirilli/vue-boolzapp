@@ -4,22 +4,28 @@ const app = createApp({
         //console.log(catalogo);
         return{
             players:catalogo,
-            todo_text:'',
+            newText:'',
             indexPlayer: 0,
+            searchText:'',
         }
     },
     mounted() {
     },
     methods: {
-        addTodo(){
-            this.players.push({
-                text: this.todo_text,
-            });
-            this.todo_text='';
-        },
         setActivePlayer(index){
             this.indexPlayer=index;
-
-        }
+        },
+       searchPlayer(){
+           this.players.forEach((player)=>{
+               if(player.name.toLowerCase().includes(this.searchText.toLowerCase())){
+                   player.visible=true;
+               }else{
+                   player.visible=false;
+               }
+           });
+       },
+       addNewText(){
+        this.players[this.indexPlayer].text=this.newText;
+       }
     }
 }).mount('#app');

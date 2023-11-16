@@ -63,9 +63,11 @@
 
                 <!-- avatar list-->
                    <!-- Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare
-nome e immagine di ogni contatto riga 68 e riga 73 -->
+nome e immagine di ogni contatto riga 68 e riga 73  //milestone 1.    (class="avatar")-->
                 <div class="avatar-list">
-                    <div class="avatar" v-for="player in players">
+                    <!-- creo una classe active al click -->
+                    <div  v-for="(player, index) in players" :class="(index == indexPlayer) ? 'avatar active' : 'avatar' "
+                    @click="setActivePlayer(index)">
                         <div class="img">
                             <img :src="player.image" alt="">
                         </div>
@@ -78,233 +80,6 @@ nome e immagine di ogni contatto riga 68 e riga 73 -->
                         </div>
                     </div>
                     <hr>
-                    <!-- <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_2.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_3.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_4.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_5.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_6.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_7.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_8.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_6.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_7.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_8.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-
-                    <hr>
-                    <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_8.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_8.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_8.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_8.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-
-                    <hr>
-                    <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_8.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_8.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="avatar">
-                        <div class="img">
-                            <img src="img/avatar_8.jpg" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>Michele</p>
-                            <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                        <div class="time">
-                            <p>12.45</p>
-                        </div>
-                    </div>
-                    <hr>-->
                 </div> 
 
                
@@ -334,13 +109,15 @@ nome e immagine di ogni contatto riga 68 e riga 73 -->
 
                 <!-- messages on main page -->
                 <div class="message">
-                    <div class="message-right ">
-                        <div class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat veritatis
-                            culpa minus blanditiis quidem iste labore! Doloribus nihil nostrum quidem laudantium fugit
-                            quaerat deserunt, assumenda ullam tenetur ipsa dolore impedit.</div>
+                     <div class="message-right"> 
+                        <div class="paragraph">
+                           <div>
+                            <p>{{players[indexPlayer].text}}</p>
+                           </div>
+                        </div>
 
-                        <div class="paragraph-aside">
-                            <div class="angle-down">
+                       <!-- <div class="paragraph-aside">
+                              <div class="angle-down">
                                 <a href=""><i class="fa-solid fa-angle-down"></i></a>
                                 <div class="dropdown-content">
                                     <a href="#">Link 1</a>
@@ -348,18 +125,19 @@ nome e immagine di ogni contatto riga 68 e riga 73 -->
                                     <a href="#">Link 3</a>
                                 </div>
                             </div>
-                            <div class="time">12.30</div>
+                            <div class="time"></div>
 
-                        </div>
+                        </div>  -->
 
                     </div>
 
 
                     <div class="message-left">
-                        <div class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi dicta
-                            minus assumenda, doloremque itaque optio exercitationem laudantium, ipsam molestias dolorum
-                            qui quisquam, similique cupiditate officia pariatur quis et cum. Magnam!</div>
-                        <div class="paragraph-aside">
+                        <div class="paragraph"></div>
+                        <div>
+                            <p>{{players[indexPlayer].text_amigo}}</p>
+                        </div>
+                        <!-- <div class="paragraph-aside">
                             <div class="angle-down">
                                 <a href=""><i class="fa-solid fa-angle-down"></i></a>
                                 <div class="dropdown-content">
@@ -369,14 +147,15 @@ nome e immagine di ogni contatto riga 68 e riga 73 -->
                                 </div>
                             </div>
                             <div class="time">12.30</div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <!-- / end messages on main page -->
                 <!-- footer -->
                 <div class="footer">
                     <div class="smile"><i class="fa fa-light fa-face-smile"></i></div>
-                    <div class="text"><input type="text" name="" id="" placeholder="Invia un messaggio"></div>
+                    <div class="text"><input  v-model="todo_text"  type="text" name="" id="" placeholder="Invia un messaggio"></div>
+                    <button @click.prevent="addTodo()" class="microphone"><i class="fa-solid fa-paper-plane"></i></button>
                     <div class="microphone"><i class="fa-solid fa-microphone"></i></div>
                 </div>
                 <!-- footer -->

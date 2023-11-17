@@ -38,16 +38,24 @@
                 <label class="search-label" for="search">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </label>
-                <input id="contacts-filter" class="left-searchbar-input" placeholder="Cerca o inizia una nuova chat"
-                    name="search">
+                <!-- qui abbiamo inserito il v-model che serve in questo caso per inserire la ricerca dei nomi nell'input -->
+                <input 
+                @keyup="searchContact"
+                v-model="searchText" 
+                id="contacts-filter" 
+                class="left-searchbar-input" 
+                placeholder="Cerca o inizia una nuova chat"
+                name="search">
             </div>
             <!-- contatti -->
             <div class="contacts">
                 <!-- primo step v-for="player in players" per creare la lista di contatti dinamica -->
                 <!-- secondo step cambio classe per sapere quale nome abbiamo cliccato inseriemo index insieme a player -->
-                <div  v-for="(player, indexPlayer) in players"
-                :class="(index == indexPlayer) ? 'contact active' : 'contact'"
-                @click="setActivePlayer(index)">
+                <div  
+                v-for="(player, index ) in players"
+                :class="(index == indexPlayer) ? 'contact active' : 'contact'"     
+                @click="setActivePlayer(index)"
+                v-show="player.visible">
                 <!-- come facciamo a salvarci l'elemento della lista che è stato cliccato? aggiungiamo un evento @click
                 settiamo un metodo setActivePlayer  -->
                 <!-- :class Possiamo passare un oggetto a :class (abbreviazione di v-bind:class) per attivare/disattivare(toggle) dinamicamente le classi:-->
@@ -89,10 +97,15 @@
             </div>
             <div class="right-messages-container">
                 <div class="right-messages">
-                    <div class="message sent">
+                    <!-- sentdiventa la classe dinamica :class="messageObj.status" -->
+                    <div class="message" 
+                         :class="messageObj.status" 
+                         v-for="(messageObj, index) in players[indexPlayers].messages"
+                         :key="messageObj.date"> 
+                        <!-- :key="messageObj.date" serve per non avere errori nel console log -->
                         <div class="message-inner">
                             <span class="message-text">
-                                {{players[indexPlayers].messages[0].message}}
+                                {{messageObj.message}}
                             </span>
                             <div class="message-options">
                                 <i class="fa fa-chevron-down"></i>
@@ -102,12 +115,12 @@
                                 </div>
                             </div>
                         </div>
-                        <span class="message-time">16:13</span>
+                        <span class="message-time">{{messageObj.date}}</span>
                     </div>
-                    <div class="message received">
+                    <!-- <div class="message received">
                         <div class="message-inner">
                             <span class="message-text">
-                                {{players[indexPlayers].messages[2].message}}
+                                
                             </span>
                             <div class="message-options">
                                 <i class="fa fa-chevron-down"></i>
@@ -118,9 +131,9 @@
                             </div>
                         </div>
                         <span class="message-time">16:15</span>
-                    </div>
+                    </div>-->
                 </div>
-            </div>
+            </div> 
             <div class="right-footer">
                 <div class="right-footer-icon">
                     <i class="far fa-smile"></i>
@@ -133,7 +146,8 @@
         </div>
         <!-- /contenitore dx -->
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.4/luxon.min.js"></script>
     <script src="catalogo.js"></script>
-<script src="main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

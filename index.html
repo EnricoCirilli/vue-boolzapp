@@ -41,17 +41,23 @@
                 <input id="contacts-filter" class="left-searchbar-input" placeholder="Cerca o inizia una nuova chat"
                     name="search">
             </div>
+            <!-- contatti -->
             <div class="contacts">
-                <div class="contact">
+                <!--  v-for="player in players" per creare la lista di contatti dinamica -->
+                <div class="contact" v-for="player in players">
                     <div class="contact-logo">
                         <img src="img/avatar_1.jpg" alt="Avatar Michele">
                     </div>
                     <div class="contact-info">
                         <h3>
-                            <span class="contact-name">Michele</span>
-                            <span class="time">16:15</span>
+                            <!-- Nome usiamo il templating( o detti anche baffetti) per visualizzare i nomi-->
+                            <!-- scrivo player.name perché seleziono prima il mome del catalogo e poi all'interno seleziono 
+                            name per ritrovare utti i nomi presenti -->
+                            <span class="contact-name">{{player.name}}</span>
+                            <span class="time"></span>
                         </h3>
-                        <small>Lorem ipsum dolor sit amet</small>
+                        <!-- testo -->
+                        <small></small>
                     </div>
                 </div>
        

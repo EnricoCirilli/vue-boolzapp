@@ -1,163 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/tablet.css" media="screen and (max-width: 991px)">
+    <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 540px)">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <title>Document</title>
+    <title>Boolzapp</title>
 </head>
-
 <body>
-    <!-- wrapper -->
-    <div class="wrapper" id="app">
-
-
-        <!-- main box -->
-        <div class="main-box">
-
-            <!-- left col -->
-            <div class="left-column">
-                <!-- header  on the left -->
-                <div class="header">
-                    <div class="io">
-                        <img src="img/avatar_io.jpg" alt="">
-                    </div>
-                    <div class="logo-header">
-                        <ul>
-                            <li><a href="#" title="Refresh"><i class="fa-solid fa-circle-notch"></i></a></li>
-                            <li><a href="#" title="Messages"><i class="fa-solid fa-message"></i></a></li>
-                            <li><a href="#" title="More options"><i class="fa-solid fa-ellipsis fa-rotate-90"></i></a>
-                            </li>
-
-                        </ul>
-                    </div>
+    <div id="app" class="container">
+        <!-- contenitore sx -->
+        <div class="left">
+            <div class="header-left">
+                <div class="header-left-logo">
+                    <img src="" alt="Mio avatar">
                 </div>
-                <!-- /header -->
-
-                <!-- notification cta -->
-                <div class="cta">
-                    <div class="bell">
-                        <i class="fa-solid fa-bell-slash" style="color: #2fa8c6;"></i>
-                    </div>
-                    <div class="notification">
-                        <h6>Ricevi notizie di nuovi messaggi</h6>
-                        <a href="">attiva notifiche desktop</a>
-                    </div>
+                <div class="header-left-icons">
+                    <i class="fas fa-circle-notch"></i>
+                    <i class="fas fa-comment-alt"></i>
+                    <i class="fas fa-ellipsis-v"></i>
                 </div>
-                <!-- /cta -->
-
-                <!-- search bar cerchimao l'utente per nome-->
-                <div class="search-bar">
-                    <div class="search">
-                        <label for=""><i class="fas fa-search"></i></label>
-                        <input v-model="searchText" type="search" name="" id="" @keyup="searchPlayer">
-
-                    </div>
-
-                </div>
-                <!-- /search bar -->
-
-                <!-- avatar list-->
-                <!-- Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare
-                       nome e immagine di ogni contatto riga 68 e riga 73  //milestone 1.    (class="avatar")-->
-                <div class="avatar-list">
-                    <!-- creo una classe active al click -->
-                    <div v-for="(player, index) in players"
-                        :class="(index == indexPlayer) ? 'avatar active' : 'avatar' " @click="setActivePlayer(index)"
-                        v-show="player.visible">
-                        <div class="img">
-                            <img :src="player.image" alt="">
-                        </div>
-                        <div class="name-description">
-                            <p>{{player.name}}</p>
-                            <span></span>
-                        </div>
-                        <div class="time">
-                            <p></p>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-
-
             </div>
-
-            <!-- / end left col -->
-
-            <!-- start right col -->
-            <div class="right-column">
-                <!-- head right top -->
-                <div class="right-top">
-                    <div class="right-img">
-                        <img src="img/avatar_1.jpg" alt="">
-                        <ul>
-                            <li>Michele</li>
-                            <li class="access">Ultima visita effetuata alle 16:26</li>
-                        </ul>
+            <div class="left-disclaimer">
+                <div class="left-disclaimer-logo">
+                    <i class="fa fa-bell-slash" aria-hidden="true"></i>
+                </div>
+                <div class="left-disclaimer-text">
+                    <h3>Ricevi notifiche di nuovi messaggi</h3>
+                    <a href="#">Attiva notifiche desktop</a>
+                </div>
+            </div>
+            <div class="left-searchbar">
+                <label class="search-label" for="search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </label>
+                <input id="contacts-filter" class="left-searchbar-input" placeholder="Cerca o inizia una nuova chat"
+                    name="search">
+            </div>
+            <div class="contacts">
+                <div class="contact">
+                    <div class="contact-logo">
+                        <img src="img/avatar_1.jpg" alt="Avatar Michele">
                     </div>
-                    <div class="logo-top-right">
-                        <ul>
-                            <li><a href=""><i class="fa-solid fa-circle-notch"></i></a></li>
-                            <li><a href=""><i class="fa-solid fa-message"></i></a></li>
-                            <li><a href=""><i class="fa-solid fa-ellipsis fa-rotate-90"></i></a></li>
-                        </ul>
+                    <div class="contact-info">
+                        <h3>
+                            <span class="contact-name">Michele</span>
+                            <span class="time">16:15</span>
+                        </h3>
+                        <small>Lorem ipsum dolor sit amet</small>
                     </div>
                 </div>
-
-                <!-- messaggio destro verde-->
-                <div class="message">
-                    <div class="message-right">
-                        <div class="paragraph"  >
-                            <div>
-                               <p>{{players[indexPlayer].text}}</p>
+       
+            </div>
+        </div>
+        <!-- /contenitore sx -->
+        <!-- contenitore dx -->
+        <div class="right">
+            <div class="header-right">
+                <div class="header-right-logo">
+                    <img src="img/avatar_1.jpg" alt="">
+                    <h3><span id="header-right-contact-name">Michele</span> <br>
+                        <small class="time">Ultimo accesso oggi alle 16:26</small>
+                    </h3>
+                </div>
+                <div class="header-right-icons">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-paperclip"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </div>
+            <div class="right-messages-container">
+                <div class="right-messages">
+                    <div class="message sent">
+                        <div class="message-inner">
+                            <span class="message-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat eos blanditiis architecto expedita aspernatur quasi, et nobis aut officiis soluta voluptates nesciunt voluptate ipsa fuga rerum doloribus, unde laboriosam doloremque?
+                            </span>
+                            <div class="message-options">
+                                <i class="fa fa-chevron-down"></i>
+                                <div class="message-options-panel">
+                                    <div class="message-info">Info messaggio</div>
+                                    <div class="message-destroy">Cancella messaggio</div>
+                                </div>
                             </div>
                         </div>
+                        <span class="message-time">16:13</span>
                     </div>
-                    
-                <!-- messaggio sinistro bianco-->
-
-                    <div class="message-left">
-                        <div class="paragraph"></div>
-                        <div>
-                            <p>{{players[indexPlayer].text_amigo}}</p>
+                    <div class="message received">
+                        <div class="message-inner">
+                            <span class="message-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat eos blanditiis architecto expedita
+                                aspernatur quasi, et nobis aut officiis soluta voluptates nesciunt voluptate ipsa fuga rerum doloribus, unde
+                                laboriosam doloremque?
+                            </span>
+                            <div class="message-options">
+                                <i class="fa fa-chevron-down"></i>
+                                <div class="message-options-panel">
+                                    <div class="message-info">Info messaggio</div>
+                                    <div class="message-destroy">Cancella messaggio</div>
+                                </div>
+                            </div>
                         </div>
+                        <span class="message-time">16:15</span>
                     </div>
                 </div>
-
-                
-
-                <!-- footer input per inserire nuovo messaggio -->
-                <div class="footer">
-                    <div class="smile"><i class="fa fa-light fa-face-smile"></i></div>
-                    <div class="text">
-                        <input v-model="newText" type="text" name="" id="" placeholder="Invia un messaggio">
-                    </div>
-                    <button @click="addNewText()" class="microphone" title="Send message">
-                        <i class="fa-solid fa-paper-plane"></i></button>
-                    <div class="microphone"><i class="fa-solid fa-microphone"></i></div>
-                </div> 
-                <!-- footer -->
-
             </div>
-            <!-- right col -->
-
+            <div class="right-footer">
+                <div class="right-footer-icon">
+                    <i class="far fa-smile"></i>
+                </div>
+                <input class="new-message-inputs" placeholder="Scrivi un messaggio">
+                <div class="right-footer-icon">
+                    <i class="fa fa-microphone" aria-hidden="true"></i>
+                </div>
+            </div>
         </div>
-
-        <!-- main box -->
-
-
+        <!-- /contenitore dx -->
     </div>
-
-    <!-- end wrapper -->
-
     <script src="catalogo.js"></script>
-    <script src="main.js"></script>
+<script src="main.js"></script>
 </body>
-
 </html>
